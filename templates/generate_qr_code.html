@@ -23,11 +23,27 @@
         <form action="{% url 'generate_qr_code' %}" method="POST">
             {% csrf_token %}
 
-            {{ form.as_p}}
+            <!--{{ form.as_p}} -->
+             <div class="mb-3">
+                {{ form.restaurant_name.label_tag }}
+                {{ form.restaurant_name }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.url.label_tag }}
+                {{ form.url }}
+                <br>
+                <small class="text-muted">
+                    ⚠️ For Google Drive links, set sharing to <b>"Anyone with the link can view"</b> so others can access your menu.
+                </small>
+
+            </div>
+
 
             <button type="submit" class="btn btn-primary">Generate QR Code</button>
 
         </form>
+        
     
     
     
